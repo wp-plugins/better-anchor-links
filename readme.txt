@@ -5,7 +5,7 @@ Tags: anchor links, content links, content, sidebar, links, widget, better
 Requires at least: 3.0
 Tested up to: 3.1.4
 anchor links, bal, lm-bal
-Stable tag: 1.1
+Stable tag: 1.2
 
 Creates anchor links to heading tags in the content and displays automatically at the top of the content, or allows for custom placement with tags.
 
