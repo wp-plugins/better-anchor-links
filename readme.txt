@@ -57,6 +57,9 @@ In Sidebar
 2. Display in default wordpress template
 
 == Changelog ==
+= 1.2 =
+* fixed widget issue
+
 = 1.1 =
 * Program rename
 * Fixed dysfunctional save options.

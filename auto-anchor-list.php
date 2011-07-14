@@ -4,7 +4,7 @@ Plugin Name: Better Anchor Links
 Plugin URI: http://ludek.org/bal/index.html
 Description: Automatically creates and displays anchor links.
 Author: Luděk Melichar
-Version: 1.1
+Version: 1.2
 Author URI: http://ludek.org
 */
 
@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if (!class_exists('mwm_aalLoader')) {
 	class mwm_aalLoader{
 		
-		var $version     = '1.0';
+		var $version     = '1.2';
 		var $options     = '';
 		var $links = array();
 	
@@ -39,7 +39,6 @@ if (!class_exists('mwm_aalLoader')) {
 			$this->load_dependencies();
 			register_activation_hook( plugin_basename( dirname(__FILE__)).'/auto-anchor-list.php', array(&$this, 'activate') );
 			register_sidebar_widget('Better Anchor Links', array(&$this, 'widget'));
-			
 		}
 		
 		
@@ -116,7 +115,7 @@ if (!class_exists('mwm_aalLoader')) {
 			extract($args);
 			//Manditory before widget junk
 			echo $before_widget;
-			echo '<li>';
+			//echo '<li>';
 			global $mwm_aal; $mwm_aal->output_sidebar_links();
 			echo '</li>';
 			//Manditory after widget junk

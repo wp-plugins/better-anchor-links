@@ -5,7 +5,7 @@
  * @package Better Anchor Links
  * @author Luděk Melichar
  * @copyright 2011
- * @since 1.1.0
+ * @since 1.2.0
  */
 if (!class_exists('mwm_aal')) {
 	class mwm_aal{
@@ -31,7 +31,7 @@ if (!class_exists('mwm_aal')) {
 		function load_styles() {
 		
 			if ($this->options['activateCSS']){
-				wp_enqueue_style('MWM-AAL-FRONT-CSS', MWMAAL_URLPATH.'css/mwm-aal.css', false, '1.0.0', 'screen');
+				wp_enqueue_style('MWM-AAL-FRONT-CSS', MWMAAL_URLPATH.'css/mwm-aal.css', false, '1.2.0', 'screen');
 			}
 		}
 		
@@ -114,7 +114,7 @@ if (!class_exists('mwm_aal')) {
 				    (is_page()     and $this->options['is_page']))){
 				    $title = $this->options['displayTitle'];
 			$info = '<div class="mwm-aal-sidebar-container">';
-			$info .= "<li><h2>$title</h2><ul>";
+			$info .= "<h2>$title</h2><ul>";
 			foreach ($this->links as $val) {
 			$urlval = urlencode(strip_tags($val[2]));
 				$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
