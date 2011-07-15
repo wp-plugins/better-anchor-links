@@ -14,12 +14,13 @@ Creates anchor links to heading tags in the content and displays automatically a
 Creates anchor links to heading tags in the content and displays them automatically at the top of the content, or allows for custom placement with tags or sidebar widget.
 
 Features:
-	1. Has option to auto display anchor links to Heading tags in content.
-	2. Allows control of which content to auto display links.
-	3. Can disable plugin css to allow custom styles to be applied.
-	4. Has widget available for display
-	5. Insert custom title to display above links
-	6. Clears all traces from any excerpts displayed
+
+*	1. Has option to auto display anchor links to Heading tags in content.
+*	2. Allows control of which content to auto display links.
+*	3. Can disable plugin css to allow custom styles to be applied.
+*	4. Has widget available for display
+*	5. Insert custom title to display above links
+*	6. Clears all traces from any excerpts displayed
 
 == Installation ==
 
