@@ -32,10 +32,10 @@ Features:
 = How Do I Place In Custom Locations? =
 
 In Content
-	1. Using the visual editor
-		- Add the tag [mwm-aal-display] into your individual content using the visual editor.
-	2. PHP Template Tag(must be below the_content())
-		`<?php global $mwm_aal; echo $mwm_aal->output_content_links(); ?>`
+1. Using the visual editor
+   Add the tag [mwm-aal-display] into your individual content using the visual editor.
+2. PHP Template Tag(must be below the_content())
+   `<?php global $mwm_aal; echo $mwm_aal->output_content_links(); ?>`
 
 In Sidebar
 	1. Activate Widget
