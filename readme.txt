@@ -48,12 +48,12 @@ In Sidebar:
 = How Do I Add Custom Styles? =
 The content display and side bar are wrapped with a <div> with an assigned css class. You can put the classes into your own style sheet and use further declarations to target elements within the div.
 	
-For Content:(uses <ol>,Does not use an H tag for title)
-.mwm-aal-container{}
-.mwm-aal-container-title{}
+	For Content:(uses <ol>,Does not use an H tag for title)
+		.mwm-aal-container{}
+		.mwm-aal-container-title{}
 		
-For Sidebar: (uses <ul>, traditional h2 tag for title)
-mwm-aal-sidebar-container{}
+	For Sidebar: (uses <ul>, traditional h2 tag for title)
+		mwm-aal-sidebar-container{}
 
 == Screenshots ==
 1. Admin options
