@@ -36,14 +36,14 @@ In Content:
 1. Using the visual editor
    - Add the tag [mwm-aal-display] into your individual content using the visual editor.
 2. PHP Template Tag(must be below the_content())
-   `<?php global $mwm_aal; echo $mwm_aal->output_content_links(); ?>`
+   - `<?php global $mwm_aal; echo $mwm_aal->output_content_links(); ?>`
 
 In Sidebar:
 
 1. Activate Widget
    - Go to Appearance -> Widgets in Wordpress admin "Better Anchor Links".
 2. PHP Template Tag
-   `<?php global $mwm_aal; $mwm_aal->output_sidebar_links(); ?>`
+   - `<?php global $mwm_aal; $mwm_aal->output_sidebar_links(); ?>`
 		
 = How Do I Add Custom Styles? =
 The content display and side bar are wrapped with a `<div>` with an assigned css class. You can put the classes into your own style sheet and use further declarations to target elements within the div.
