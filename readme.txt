@@ -1,7 +1,7 @@
 === Better Anchor Links ===
 Contributors: Luděk Melichar
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=48CZMVXER28PE&lc=CZ&item_name=Plugin%20development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
-Tags: anchor links, content links, content, sidebar, links, widget, better anchor links, bal, lm-bal
+Tags: anchor, anchor links, content links, content, sidebar, links, widget, better anchor links, bal, lm-bal, anchor list, auto anchor list
 Requires at least: 3.0
 Tested up to: 3.1.4
 Stable tag: 1.3
@@ -72,8 +72,8 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 * Default changed for H1 and H2 only
 
 = 1.0 =
-* Fork of Auto Anchor Links.
+* Fork of Auto Anchor List.
 
 == Upgrade Notice ==
 = 1.1 =
-* For upgrade from Auto Anchor Links 1.0 uninstall old AAL and remove addon. Install Better Anchor Links 1.1. If you used manual tags to contents, they are compatible.
+* For upgrade from Auto Anchor List 1.0 uninstall old AAL and remove addon. Install Better Anchor Links 1.1. If you used manual tags to contents, they are compatible.
