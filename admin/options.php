@@ -102,7 +102,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 				</td>
 			</tr>
 			<tr  valign="top">
-				<th scope="row" valign="top" align="left"><?php _e('List type','mwmaal') ?></th>
+				<th scope="row" valign="top" align="left"><?php _e('List Output Type','mwmaal') ?></th>
 				<td>
 			<input type="checkbox" name="is_numbering" value="1" <?php checked($mwm_aalLoader->options['is_numbering']); ?> /> <?php _e("Numerically ordered list (otherwise bulleted list)", 'mwmaal'); ?><br />
 		
