@@ -4,7 +4,7 @@ Plugin Name: Better Anchor Links
 Plugin URI: http://ludek.org/bal/index.html
 Description: Automatically creates and displays anchor links.
 Author: Luděk Melichar
-Version: 1.2
+Version: 1.3
 Author URI: http://ludek.org
 */
 
@@ -29,11 +29,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if (!class_exists('mwm_aalLoader')) {
 	class mwm_aalLoader{
 		
-		var $version     = '1.2';
+		var $version     = '1.3';
 		var $options     = '';
 		var $links = array();
 	
 		function mwm_aalLoader(){
+			$this->upgra_options();
 			$this->load_options();					
 			$this->define_constants();
 			$this->load_dependencies();
@@ -41,6 +42,17 @@ if (!class_exists('mwm_aalLoader')) {
 			register_sidebar_widget('Better Anchor Links', array(&$this, 'widget'));
 		}
 		
+		function upgra_options(){
+			$options = get_option('lm_bal_options');
+			if (!empty( $options ) ){
+				if (!array_key_exists('is_numbering', $options))
+				{
+					$lm_bal_options=$options ;
+					$lm_bal_options['is_numbering'] = true;
+					update_option('lm_bal_options', $lm_bal_options); 
+				}
+			}
+		}
 		
 		function load_options(){
 			// Load the options
@@ -69,8 +81,6 @@ if (!class_exists('mwm_aalLoader')) {
 			}
 		}
 		
-		
-		
 		function activate(){
 			$options = get_option('lm_bal_options');
 			if ( empty( $options ) ){
@@ -79,7 +89,7 @@ if (!class_exists('mwm_aalLoader')) {
 			$lm_bal_options['autoDisplayInContent'] = true;
 			$lm_bal_options['displayTitle'] = "Contents";
 			$lm_bal_options['contentColumnCount'] = 2;
-			$lm_bal_options['is_home'] = true;
+			$lm_bal_options['is_home'] = false;
 			$lm_bal_options['is_single'] = true;
 			$lm_bal_options['is_page'] = true;
 			$lm_bal_options['is_category'] = true;
@@ -87,6 +97,7 @@ if (!class_exists('mwm_aalLoader')) {
 			$lm_bal_options['is_date'] = true;
 			$lm_bal_options['is_author'] = true;
 			$lm_bal_options['is_search'] = true;
+			$lm_bal_options['is_numbering'] = true;
 
 			update_option('lm_bal_options', $lm_bal_options);
 			}

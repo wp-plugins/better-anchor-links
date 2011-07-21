@@ -11,6 +11,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 			}
 		
 			// Save options
+			//print_r ($mwm_aalLoader->options);
 			update_option('lm_bal_options', $mwm_aalLoader->options);
 			$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
 			
@@ -21,14 +22,9 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 <div class="wrap">
 	<h2>Better Anchor Links Options</h2>
 	
-	
-	
-	
-	
-	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -43,7 +39,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 
 
 
-					<div style="text-align:center;">
+					<div style="text-align:none;">
 					Luděk Melichar <br>
 					<a href="http://ludek.org"><small>ludek.org</small></a>
 
@@ -62,6 +58,8 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 					</a>
 					
 						</p>
+					<h2 style="margin-top:0px;"><?php _e('Vote','mwmaal'); ?></h2><a href="http://wordpress.org/extend/plugins/better-anchor-links/"><img align=right src="<?php echo plugins_url('vote.jpg', __FILE__);?>" />
+                    <p><?php _e('Vote for your combination on plugin home, you help others. ','mwmaal'); ?></a></p> 
 
 		</td>
 	   <!--  ======= END Credits ============= -->
@@ -88,10 +86,11 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 				</td>
 			</tr>
 			<tr  valign="top">
-				<th scope="row" valign="top" align="left"><?php _e('Auto Display On','mwmaal') ?></th>
+				<th scope="row" valign="top" align="left"></th>
 				<td>
 				<?php _e('If auto display is on, where do you want the links to display?','mwmaal') ?><br/>
-			<input type="checkbox" name="is_home" value="1" <?php checked($mwm_aalLoader->options['is_home']); ?> /> <?php _e("Front page of the blog", 'mwmaal'); ?><br/>
+				<BLOCKQUOTE><BLOCKQUOTE>
+			<input type="checkbox" name="is_home" value="1" <?php checked($mwm_aalLoader->options['is_home']); ?> /> <?php _e("Front page of the blog (not recommended)", 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_single" value="1" <?php checked($mwm_aalLoader->options['is_single']); ?> /> <?php _e("Individual blog posts", 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_page" value="1" <?php checked($mwm_aalLoader->options['is_page']); ?> /> <?php _e('Individual WordPress "Pages"', 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_category" value="1" <?php checked($mwm_aalLoader->options['is_category']); ?> /> <?php _e("Category archives", 'mwmaal'); ?><br/>
@@ -99,9 +98,16 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 			<input type="checkbox" name="is_date" value="1" <?php checked($mwm_aalLoader->options['is_date']); ?> /> <?php _e("Date-based archives", 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_author" value="1" <?php checked($mwm_aalLoader->options['is_author']); ?> /> <?php _e("Author archives", 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_search" value="1" <?php checked($mwm_aalLoader->options['is_search']); ?> /> <?php _e("Search results", 'mwmaal'); ?><br/>
-		
+				</BLOCKQUOTE></BLOCKQUOTE>
 				</td>
 			</tr>
+			<tr  valign="top">
+				<th scope="row" valign="top" align="left"><?php _e('List Output Type','mwmaal') ?></th>
+				<td>
+			<input type="checkbox" name="is_numbering" value="1" <?php checked($mwm_aalLoader->options['is_numbering']); ?> /> <?php _e("Numerically ordered list (otherwise bulleted list)", 'mwmaal'); ?><br />
+		
+				</td>
+			</tr> 
 			<!--<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('# of Columns in Content','mwmaal') ?></th>
 				<td>

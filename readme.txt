@@ -21,6 +21,7 @@ Features:
 * Has widget available for display
 * Insert custom title to display above links
 * Clears all traces from any excerpts displayed
+* Selection between numerically ordered and bulleted list 
 
 == Installation ==
 
@@ -60,8 +61,11 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 2. Display in default wordpress template
 
 == Changelog ==
+= 1.3 =
+* List customization 
+
 = 1.2 =
-* fixed widget issue
+* Fixed widget issue
 
 = 1.1 =
 * Program rename

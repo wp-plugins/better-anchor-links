@@ -5,7 +5,7 @@
  * @package Better Anchor Links
  * @author Luděk Melichar
  * @copyright 2011
- * @since 1.2.0
+ * @since 1.1.0
  */
 if (!class_exists('mwm_aal')) {
 	class mwm_aal{
@@ -42,14 +42,14 @@ if (!class_exists('mwm_aal')) {
 			
 			if($this->options['autoDisplayInContent'] and !$this->isTagUsed){
 			
-				if ((is_home()     and $this->options['is_home']) or
-				    (is_single()   and $this->options['is_single']) or
-				    (is_page()     and $this->options['is_page']) or
-				    (is_category() and $this->options['is_category']) or
-					(is_tag() 	   and $this->options['is_tag']) or
-				    (is_date()     and $this->options['is_date']) or
-					(is_author()   and $this->options['is_author']) or
-				    (is_search()   and $this->options['is_search'])) {
+				if ((is_home()		and $this->options['is_home']) or
+				    (is_single()	and $this->options['is_single']) or
+				    (is_page()		and $this->options['is_page']) or
+				    (is_category()	and $this->options['is_category']) or
+					(is_tag()		and $this->options['is_tag']) or
+				    (is_date()		and $this->options['is_date']) or
+					(is_author()	and $this->options['is_author']) or
+				    (is_search()	and $this->options['is_search'])) {
 				  
 					$content = $this->auto_output_content_links($content);
 				}
@@ -95,15 +95,20 @@ if (!class_exists('mwm_aal')) {
 		
 		function output_content_links(){
 			$info = "";
+			if ($this->options['is_numbering']) { 
+				$seznam="ol";
+			} else {
+				$seznam="ul";
+			}
 			if(count($this->links) >= 1){
 			$title = $this->options['displayTitle'];
 			$info = '<div class="mwm-aal-container">';
-			$info.= "<div class='mwm-aal-title'>$title</div><ol>";
+			$info.= "<div class='mwm-aal-title'>$title</div><$seznam>";
 			foreach ($this->links as $val) {
 				$urlval = urlencode(strip_tags($val[2]));
 				$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
 			}
-			$info .= '</ol></div>';
+			$info .= '</'.$seznam.'></div>';
 			}
 			return $info;
 		}
