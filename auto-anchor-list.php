@@ -89,7 +89,7 @@ if (!class_exists('mwm_aalLoader')) {
 			$lm_bal_options['autoDisplayInContent'] = true;
 			$lm_bal_options['displayTitle'] = "Contents";
 			$lm_bal_options['contentColumnCount'] = 2;
-			$lm_bal_options['is_home'] = true;
+			$lm_bal_options['is_home'] = false;
 			$lm_bal_options['is_single'] = true;
 			$lm_bal_options['is_page'] = true;
 			$lm_bal_options['is_category'] = true;

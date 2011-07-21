@@ -87,7 +87,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 				<th scope="row" valign="top" align="left"><?php _e('Auto Display On','mwmaal') ?></th>
 				<td>
 				<?php _e('If auto display is on, where do you want the links to display?','mwmaal') ?><br/>
-			<input type="checkbox" name="is_home" value="1" <?php checked($mwm_aalLoader->options['is_home']); ?> /> <?php _e("Front page of the blog", 'mwmaal'); ?><br/>
+			<input type="checkbox" name="is_home" value="1" <?php checked($mwm_aalLoader->options['is_home']); ?> /> <?php _e("Front page of the blog (not recommended)", 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_single" value="1" <?php checked($mwm_aalLoader->options['is_single']); ?> /> <?php _e("Individual blog posts", 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_page" value="1" <?php checked($mwm_aalLoader->options['is_page']); ?> /> <?php _e('Individual WordPress "Pages"', 'mwmaal'); ?><br/>
 			<input type="checkbox" name="is_category" value="1" <?php checked($mwm_aalLoader->options['is_category']); ?> /> <?php _e("Category archives", 'mwmaal'); ?><br/>
