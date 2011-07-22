@@ -101,19 +101,23 @@ if (!class_exists('mwm_aal')) {
 				$info = '<div class="mwm-aal-container">';
 				$info.= "<div class='mwm-aal-title'>$title</div><$seznam>";
 				foreach ($this->links as $val) {
-					if(empty($minule)) {
-	                    $minule = $val[1];
-	                    $prvni = $val[1];
-	                    $ind = --$prvni;
-					}else{$ind = $val[1]-$minule;}
-                    while ($ind > 0) {$info .='<'.$seznam.'>'; $ind-- ;}
-                    while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
-	                $minule = $val[1];                                                                                             
+					if ($this->options['is_indent']) {
+						if(empty($minule)) {
+							$minule = $val[1];
+							$prvni = $val[1];
+							$ind = --$prvni;
+						}else{$ind = $val[1]-$minule;}
+						while ($ind > 0) {$info .='<'.$seznam.'>'; $ind-- ;}
+						while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
+						$minule = $val[1];
+					}
 					$urlval = urlencode(strip_tags($val[2]));
 					$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
 				}
-            $ind = (++$prvni)-$minule;
-            while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
+            if ($this->options['is_indent']) {
+            	$ind = (++$prvni)-$minule;
+				while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
+			}
 			$info .= '</'.$seznam.'></div>';
 			}
 			return $info;

@@ -61,6 +61,9 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 2. Display in default wordpress template
 
 == Changelog ==
+= 1.4.1 =
+* Indentation options add
+
 = 1.4 =
 * Links indentation
 * Default changed to H1-H6
