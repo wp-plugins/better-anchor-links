@@ -59,7 +59,7 @@ if (!class_exists('mwm_aal')) {
 		}
 		
 		function find_content_name_links($content){
-			preg_match_all('#<h([1-2])>(.+?)</h\1>#is',$content, $matches, PREG_SET_ORDER);
+			preg_match_all('#<h([1-6])>(.+?)</h\1>#is',$content, $matches, PREG_SET_ORDER);
 			$this->links = $matches;
 			
 			if(strpos($content, $this->tag)){
@@ -95,23 +95,29 @@ if (!class_exists('mwm_aal')) {
 		
 		function output_content_links(){
 			$info = "";
-			if ($this->options['is_numbering']) { 
-				$seznam="ol";
-			} else {
-				$seznam="ul";
-			}
+			if ($this->options['is_numbering']) {$seznam="ol";} else {$seznam="ul";}
 			if(count($this->links) >= 1){
-			$title = $this->options['displayTitle'];
-			$info = '<div class="mwm-aal-container">';
-			$info.= "<div class='mwm-aal-title'>$title</div><$seznam>";
-			foreach ($this->links as $val) {
-				$urlval = urlencode(strip_tags($val[2]));
-				$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
-			}
+				$title = $this->options['displayTitle'];
+				$info = '<div class="mwm-aal-container">';
+				$info.= "<div class='mwm-aal-title'>$title</div><$seznam>";
+				foreach ($this->links as $val) {
+					if(empty($minule)) {
+	                    $minule = $val[1];
+	                    $prvni = $val[1];
+	                    $ind = --$prvni;
+					}else{$ind = $val[1]-$minule;}
+                    while ($ind > 0) {$info .='<'.$seznam.'>'; $ind-- ;}
+                    while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
+	                $minule = $val[1];                                                                                             
+					$urlval = urlencode(strip_tags($val[2]));
+					$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
+				}
+            $ind = (++$prvni)-$minule;
+            while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
 			$info .= '</'.$seznam.'></div>';
 			}
 			return $info;
-		}
+		} 
 		
 		function output_sidebar_links(){
 			

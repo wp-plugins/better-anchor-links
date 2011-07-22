@@ -21,6 +21,7 @@ Features:
 * Insert custom title to display above links
 * Clears all traces from any excerpts displayed
 * Selection between numerically ordered and bulleted list 
+* Auto Links indentation
 
 == Installation ==
 
@@ -60,6 +61,10 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 2. Display in default wordpress template
 
 == Changelog ==
+= 1.4 =
+* Links indentation
+* Default changed to H1-H6
+
 = 1.3 =
 * List customization 
 

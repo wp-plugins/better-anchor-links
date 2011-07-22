@@ -3,6 +3,7 @@
 .mwm-aal-container .mwm-aal-title{font-size: 14px; font-weight: bold;}
 ol li{ margin-bottom: 2px;}
 ul li{ margin-bottom: 1px;}
-
+ul ul, ul ul ul{margin-left: 15px;}
+ol ol, ol ol ol{margin-left: 0px;}   
 /* Sidebar */
 .mwm-aal-sidebar-container{}
