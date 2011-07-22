@@ -24,7 +24,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -105,6 +105,13 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 				<th scope="row" valign="top" align="left"><?php _e('List Output Type','mwmaal') ?></th>
 				<td>
 			<input type="checkbox" name="is_numbering" value="1" <?php checked($mwm_aalLoader->options['is_numbering']); ?> /> <?php _e("Numerically ordered list (otherwise bulleted list)", 'mwmaal'); ?><br />
+		
+				</td>
+			</tr> 
+			<tr  valign="top">
+				<th scope="row" valign="top" align="left"><?php _e('Indentation','mwmaal') ?></th>
+				<td>
+			<input type="checkbox" name="is_indent" value="1" <?php checked($mwm_aalLoader->options['is_indent']); ?> /> <?php _e("Auto Links indentation", 'mwmaal'); ?><br />
 		
 				</td>
 			</tr> 

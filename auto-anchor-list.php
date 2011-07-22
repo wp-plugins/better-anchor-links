@@ -29,7 +29,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if (!class_exists('mwm_aalLoader')) {
 	class mwm_aalLoader{
 		
-		var $version     = '1.3';
+		var $version     = '1.4';
 		var $options     = '';
 		var $links = array();
 	
@@ -51,6 +51,12 @@ if (!class_exists('mwm_aalLoader')) {
 					$lm_bal_options['is_numbering'] = true;
 					update_option('lm_bal_options', $lm_bal_options); 
 				}
+				if (!array_key_exists('is_indent', $options))
+				{
+					$lm_bal_options=$options ;
+					$lm_bal_options['is_indent'] = false;
+					update_option('lm_bal_options', $lm_bal_options); 
+				} 
 			}
 		}
 		
@@ -98,7 +104,8 @@ if (!class_exists('mwm_aalLoader')) {
 			$lm_bal_options['is_author'] = true;
 			$lm_bal_options['is_search'] = true;
 			$lm_bal_options['is_numbering'] = true;
-
+			$lm_bal_options['is_indent'] = false;
+                               
 			update_option('lm_bal_options', $lm_bal_options);
 			}
 		}
