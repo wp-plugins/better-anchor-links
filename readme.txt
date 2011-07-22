@@ -59,6 +59,7 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 == Screenshots ==
 1. Admin options
 2. Display in default wordpress template
+3. Auto indent
 
 == Changelog ==
 = 1.4.1 =
