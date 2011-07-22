@@ -5,7 +5,7 @@
  * @package Better Anchor Links
  * @author Luděk Melichar
  * @copyright 2011
- * @since 1.2.0
+ * @since 1.1.0
  */
 
 class mwm_aalAdminPanel{
