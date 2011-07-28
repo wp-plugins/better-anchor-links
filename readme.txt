@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=48CZM
 Tags: anchor, anchor links, content links, content, sidebar, links, widget, better anchor links, bal, lm-bal, anchor list, auto anchor list
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 
 Creates anchor links to heading tags in the content and displays automatically at the top of the content, or allows for custom placement with tags.
 
@@ -62,6 +62,9 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 3. Auto indent
 
 == Changelog ==
+= 1.5.1 =
+* Fix Piwik collision
+
 = 1.5.0 =
 * Heading customization in options
 
