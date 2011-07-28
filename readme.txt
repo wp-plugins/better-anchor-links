@@ -62,6 +62,9 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 3. Auto indent
 
 == Changelog ==
+= 1.5.0 =
+* Heading customization in options
+
 = 1.4.1 =
 * Indentation options add
 
@@ -70,7 +73,7 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 * Default changed to H1-H6
 
 = 1.3 =
-* List customization 
+* List customization (numbered or bulleted list) 
 
 = 1.2 =
 * Fixed widget issue

@@ -4,33 +4,34 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 		if ( $_POST['page_options'] )	
 			$options = explode(',', stripslashes($_POST['page_options']));
 		if ($options) {
-			foreach ($options as $option) {
-				$option = trim($option);
-				$value = trim($_POST[$option]);
-				$mwm_aalLoader->options[$option] = $value;
-			}
+			if ($_POST['is_headHi']<=$_POST['is_headLo']) {
+				foreach ($options as $option) {
+					$option = trim($option);
+					$value = trim($_POST[$option]);
+					$mwm_aalLoader->options[$option] = $value;
+				}
 		
-			// Save options
-			//print_r ($mwm_aalLoader->options);
-			update_option('lm_bal_options', $mwm_aalLoader->options);
-			$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
+				// Save options
+				//print_r ($mwm_aalLoader->options);
+				update_option('lm_bal_options', $mwm_aalLoader->options);
+				$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
 			
+			}else{
+		   		$mwm_aalLoader->show_error(__('Options not saved the first heading number should be less or equal than the second ! ','mwmall'));
+			}
 		}
 
-function headSet($hilo) {
+function headSet($hilo,$numsel) {
 	echo "<select name='$hilo' size=1>";
 	$i=1; 
 	while ($i<7) {
 		echo '<option ';
-		if ($mwm_aalLoader->options["$hilo"] == $i) {
-			echo 'selected="SELECTED" ';
-			$selectedhilo=$i;
+		if ($numsel == $i) {echo 'selected="SELECTED" ';
 		}
 		echo "value=".$i.">&#60;h".$i."&#62;</option>"; 
 		$i++ ;
 	}
 	echo "</select>";
-	return $selectedhilo;
 }
   
 ?>
@@ -41,7 +42,7 @@ function headSet($hilo) {
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -135,7 +136,10 @@ function headSet($hilo) {
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Heading','mwmaal') ?></th>
 				<td>
-			   from <?headSet("is_headHi")?>to<?headSet("is_headLo")?>	
+			   from <?headSet('is_headHi',$mwm_aalLoader->options['is_headHi'])?> to <?headSet('is_headLo',$mwm_aalLoader->options['is_headLo']);
+			   _e(' (first heading number should be less or equal than the second)','mwmaal');
+				?>
+				 
 				</td>
 			</tr> 
 			<!--<tr  valign="top">
