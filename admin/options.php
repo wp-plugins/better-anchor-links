@@ -16,7 +16,24 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 			$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
 			
 		}
-		?>
+
+function headSet($hilo) {
+	echo "<select name='$hilo' size=1>";
+	$i=1; 
+	while ($i<7) {
+		echo '<option ';
+		if ($mwm_aalLoader->options["$hilo"] == $i) {
+			echo 'selected="SELECTED" ';
+			$selectedhilo=$i;
+		}
+		echo "value=".$i.">&#60;h".$i."&#62;</option>"; 
+		$i++ ;
+	}
+	echo "</select>";
+	return $selectedhilo;
+}
+  
+?>
 	
 		
 <div class="wrap">
@@ -113,6 +130,12 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 				<td>
 			<input type="checkbox" name="is_indent" value="1" <?php checked($mwm_aalLoader->options['is_indent']); ?> /> <?php _e("Auto Links indentation", 'mwmaal'); ?><br />
 		
+				</td>
+			</tr> 
+			<tr  valign="top">
+				<th scope="row" valign="top" align="left"><?php _e('Heading','mwmaal') ?></th>
+				<td>
+			   from <?headSet("is_headHi")?>to<?headSet("is_headLo")?>	
 				</td>
 			</tr> 
 			<!--<tr  valign="top">
