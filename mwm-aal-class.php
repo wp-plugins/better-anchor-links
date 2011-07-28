@@ -59,7 +59,8 @@ if (!class_exists('mwm_aal')) {
 		}
 		
 		function find_content_name_links($content){
-			preg_match_all('#<h([1-6])>(.+?)</h\1>#is',$content, $matches, PREG_SET_ORDER);
+			$pattern='#<h(['.$this->options['is_headHi'].'-'.$this->options['is_headLo'].'])>(.+?)</h\1>#is';
+			preg_match_all($pattern,$content, $matches, PREG_SET_ORDER);
 			$this->links = $matches;
 			
 			if(strpos($content, $this->tag)){

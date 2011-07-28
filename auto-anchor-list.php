@@ -4,7 +4,7 @@ Plugin Name: Better Anchor Links
 Plugin URI: http://ludek.org/bal/index.html
 Description: Automatically creates and displays anchor links.
 Author: Luděk Melichar
-Version: 1.4.1
+Version: 1.4.2
 Author URI: http://ludek.org
 */
 
@@ -57,6 +57,13 @@ if (!class_exists('mwm_aalLoader')) {
 					$lm_bal_options['is_indent'] = false;
 					update_option('lm_bal_options', $lm_bal_options); 
 				} 
+				if (!array_key_exists('is_headHi', $options))
+				{
+					$lm_bal_options=$options ;
+					$lm_bal_options['is_headHi'] = 1;
+					$lm_bal_options['is_headLo'] = 6;
+					update_option('lm_bal_options', $lm_bal_options); 
+				}
 			}
 		}
 		
