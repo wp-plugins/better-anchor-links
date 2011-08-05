@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=48CZM
 Tags: anchor, anchor links, content links, content, sidebar, links, widget, better anchor links, bal, lm-bal, anchor list, auto anchor list
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 
 Creates anchor links to heading tags in the content and displays automatically at the top of the content, or allows for custom placement with tags.
 
@@ -22,6 +22,7 @@ Features:
 * Clears all traces from any excerpts displayed
 * Selection between numerically ordered and bulleted list 
 * Auto Links indentation
+* qTranslate support
 
 == Installation ==
 
@@ -56,12 +57,19 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 	For Sidebar: (uses <ul>, traditional h2 tag for title)
 		mwm-aal-sidebar-container{}
 
+= How To qTranslate support? =
+Put qTranslate string to List Output Title for example for EN and CZ language:
+	`<!--:cs-->Obsah<!--:--><!--:en-->Contents<!--:-->`
+
 == Screenshots ==
 1. Admin options
 2. Display in default wordpress template
 3. Auto indent
 
 == Changelog ==
+= 1.5.2 =
+* Add qTranslate support
+
 = 1.5.1 =
 * Fix Piwik collision
 

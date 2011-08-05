@@ -98,7 +98,7 @@ if (!class_exists('mwm_aal')) {
 			$info = "";
 			if ($this->options['is_numbering']) {$seznam="ol";} else {$seznam="ul";}
 			if(count($this->links) >= 1){
-				$title = $this->options['displayTitle'];
+				$title = __($this->options['displayTitle'],'mwmall');
 				$info = '<div class="mwm-aal-container">';
 				$info.= "<div class='mwm-aal-title'>$title</div><$seznam>";
 				foreach ($this->links as $val) {
@@ -128,7 +128,7 @@ if (!class_exists('mwm_aal')) {
 			
 			if ((count($this->links) >= 1) and	((is_single()   and $this->options['is_single']) or
 				    (is_page()     and $this->options['is_page']))){
-				    $title = $this->options['displayTitle'];
+				    $title = __($this->options['displayTitle'],'mwmall');
 			$info = '<div class="mwm-aal-sidebar-container">';
 			$info .= "<h2>$title</h2><ul>";
 			foreach ($this->links as $val) {
@@ -141,7 +141,7 @@ if (!class_exists('mwm_aal')) {
 		}
 		
 		function remove_excerpt_display($excerpt){
-			$data = $this->options['displayTitle'];
+			$data = __($this->options['displayTitle'],'mwmall');
 			foreach ($this->links as $val) {
 				$data .= strip_tags($val[2]);
 			}
