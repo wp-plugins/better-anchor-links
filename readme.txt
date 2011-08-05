@@ -22,6 +22,7 @@ Features:
 * Clears all traces from any excerpts displayed
 * Selection between numerically ordered and bulleted list 
 * Auto Links indentation
+* qTranslate support
 
 == Installation ==
 
@@ -56,12 +57,19 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 	For Sidebar: (uses <ul>, traditional h2 tag for title)
 		mwm-aal-sidebar-container{}
 
+= How To qTranslate support? =
+Put qTranslate string to List Output Title for example for EN and CZ language:
+	`<!--:cs-->Obsah<!--:--><!--:en-->Contents<!--:-->`
+
 == Screenshots ==
 1. Admin options
 2. Display in default wordpress template
 3. Auto indent
 
 == Changelog ==
+= 1.5.2 =
+* Add qTranslate support
+
 = 1.5.1 =
 * Fix Piwik collision
 
