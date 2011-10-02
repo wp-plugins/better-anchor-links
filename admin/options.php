@@ -5,6 +5,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 			$options = explode(',', stripslashes($_POST['page_options']));
 			if ($options) {
 				if ($_POST['is_headHi']<=$_POST['is_headLo']) {
+					if ($_POST['loc-nicer'] == "") {$_POST['loc-nicer'] = "en_US";}
 					foreach ($options as $option) {
 						$option = trim($option);
 						$value = trim($_POST[$option]);
@@ -41,7 +42,7 @@ function headSet($hilo,$numsel) {
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -139,6 +140,13 @@ function headSet($hilo,$numsel) {
 			   _e(' (first heading number should be less or equal than the second)','mwmaal');
 				?>
 				 
+				</td>
+			</tr> 
+			 <tr  valign="top">
+				<th scope="row" valign="top" align="left"><?php _e('Localization source for nicer','mwmaal') ?></th>
+				<td>
+				<input type="text" size="5" name="loc-nicer" value="<?php echo $mwm_aalLoader->options['loc-nicer']; ?>" />
+						<span class="setting-description"><?php _e('.UTF8 (Change only if international characters in anchor URL is cutted. For example cs_CZ for Czech. Default is en_US)','mwmaal') ?></span>
 				</td>
 			</tr> 
 			<!--<tr  valign="top">
