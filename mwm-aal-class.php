@@ -7,7 +7,9 @@
  * @copyright 2011
  * @since 1.1.0
  */
-setlocale(LC_ALL, 'en_US.UTF8');
+if ($this->options['loc-nicer']) {$locnic=($this->options['loc-nicer']);} else {$locnic="en_US";}
+$locnic = $locnic.".UTF8";
+setlocale(LC_ALL, $locnic);
 if (!class_exists('mwm_aal')) {
 	class mwm_aal{
 		var $links= array();
