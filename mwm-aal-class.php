@@ -7,11 +7,10 @@
  * @copyright 2011
  * @since 1.1.0
  */
+setlocale(LC_ALL, 'en_US.UTF8');
 if (!class_exists('mwm_aal')) {
 	class mwm_aal{
-			
 		var $links= array();
-		
 		var $findh = true;
 		var $findAnchor = true;
 		var $options = "";
@@ -73,7 +72,7 @@ if (!class_exists('mwm_aal')) {
 		function add_anchors_to_content($content){
 			if(count($this->links) >= 1){
 				foreach ($this->links as $val) {
-					$rtext='<a name="'.urlencode(strip_tags($val[2])).'"></a>';
+					$rtext='<a name="'.urlencode($this->toAscii(strip_tags($val[2]))).'"></a>';
 					$pos = strpos($content, $val[0]);
 					$content = substr_replace($content, $rtext, $pos, 0);
 				}
@@ -112,7 +111,7 @@ if (!class_exists('mwm_aal')) {
 						while ($ind < 0) {$info .='</'.$seznam.'>'; $ind++ ;}
 						$minule = $val[1];
 					}
-					$urlval = urlencode(strip_tags($val[2]));
+					$urlval = urlencode($this->toAscii(strip_tags($val[2])));
 					$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
 				}
             if ($this->options['is_indent']) {
@@ -132,7 +131,7 @@ if (!class_exists('mwm_aal')) {
 			$info = '<div class="mwm-aal-sidebar-container">';
 			$info .= "<h2>$title</h2><ul>";
 			foreach ($this->links as $val) {
-			$urlval = urlencode(strip_tags($val[2]));
+			$urlval = urlencode($this->toAscii(strip_tags($val[2])));
 				$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
 			}
 			$info .= '</ul></li></div>';
@@ -150,6 +149,19 @@ if (!class_exists('mwm_aal')) {
 			$excerpt = str_replace($tag, '', $excerpt);
 			$excerpt = str_replace($htmltag, '', $excerpt);
 			return $excerpt;
+		}
+		
+		function toAscii($str, $replace=array(), $delimiter='-') {
+			if( !empty($replace) ) {
+				$str = str_replace((array)$replace, ' ', $str);
+			}
+
+			$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+			$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+			$clean = strtolower(trim($clean, '-'));
+			$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+
+			return $clean;
 		}
 	
 	}
