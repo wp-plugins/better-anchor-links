@@ -57,6 +57,10 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 	For Sidebar: (uses <ul>, traditional h2 tag for title)
 		mwm-aal-sidebar-container{}
 
+= How To remove lines? =
+Free edit css/mwm-aal.css for any changes. You can remove all lines above and under the links by deteting section:
+	`border-top:1px solid #ccc; border-bottom: 1px solid #ccc;` 
+
 = How To qTranslate support? =
 Put qTranslate string to List Output Title for example for EN and CZ language:
 	`<!--:cs-->Obsah<!--:--><!--:en-->Contents<!--:-->`
