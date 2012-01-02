@@ -136,7 +136,7 @@ function headSet($hilo,$numsel) {
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Heading','mwmaal') ?></th>
 				<td>
-			   from <?headSet('is_headHi',$mwm_aalLoader->options['is_headHi'])?> to <?headSet('is_headLo',$mwm_aalLoader->options['is_headLo']);
+			   from <?php headSet('is_headHi',$mwm_aalLoader->options['is_headHi'])?> to <?php headSet('is_headLo',$mwm_aalLoader->options['is_headLo']);
 			   _e(' (first heading number should be less or equal than the second)','mwmaal');
 				?>
 				 
