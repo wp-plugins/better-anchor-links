@@ -74,7 +74,6 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 = 1.5.5 =
 * Fix short tag
 
-== Changelog ==
 = 1.5.4 =
 * Locale option for Nicer
 
