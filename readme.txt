@@ -73,6 +73,8 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 == Changelog ==
 = 1.5.6 =
 * Headings now accept all html attributes (as id, class ... etc)
+* Removed orphan tags
+* Fix comments
 
 = 1.5.5 =
 * Fix short tags
