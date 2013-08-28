@@ -150,7 +150,7 @@ if (!class_exists('mwm_aalLoader')) {
 			echo $before_widget;
 			//echo '<li>';
 			global $mwm_aal; $mwm_aal->output_sidebar_links();
-			echo '</li>';
+			//echo '</li>';
 			//Manditory after widget junk
 			echo $after_widget;
 		}

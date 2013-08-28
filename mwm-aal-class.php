@@ -136,7 +136,7 @@ if (!class_exists('mwm_aal')) {
 			$urlval = urlencode($this->toAscii(strip_tags($val[2])));
 				$info.='<li><a href="#'.$urlval.'">'.strip_tags($val[2]).'</a></li>';
 			}
-			$info .= '</ul></li></div>';
+			$info .= '</ul></div>';
 			echo $info;
 			}
 		}
