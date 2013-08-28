@@ -12,7 +12,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 						$mwm_aalLoader->options[$option] = $value;
 					}
 					// Save options
-					//print_r ($mwm_aalLoader->options);
+					/*print_r ($mwm_aalLoader->options); */
 					update_option('lm_bal_options', $mwm_aalLoader->options);
 					$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
 				}else{

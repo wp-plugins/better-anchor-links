@@ -76,7 +76,7 @@ if (!class_exists('mwm_aalLoader')) {
 		function load_options(){
 			// Load the options
 			$this->options = get_option('lm_bal_options');
-			//print_r ($this->options) ;
+			/*print_r ($this->options); */
 		}
 		
 		function define_constants() {
@@ -148,9 +148,9 @@ if (!class_exists('mwm_aalLoader')) {
 			extract($args);
 			//Manditory before widget junk
 			echo $before_widget;
-			//echo '<li>';
+			/*echo '<li>'; */
 			global $mwm_aal; $mwm_aal->output_sidebar_links();
-			//echo '</li>';
+			/*echo '</li>'; */
 			//Manditory after widget junk
 			echo $after_widget;
 		}
