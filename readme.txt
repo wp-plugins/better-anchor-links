@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=48CZM
 Tags: anchor, anchor links, content links, content, sidebar, links, widget, better anchor links, bal, lm-bal, anchor list, auto anchor list
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 1.5.5
+Stable tag: 1.5.6
 
 Creates anchor links to heading tags in the content and displays automatically at the top of the content, or allows for custom placement with tags.
 
