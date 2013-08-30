@@ -40,6 +40,7 @@ if (!class_exists('mwm_aal')) {
 		
 			$this->find_content_name_links($content);
 			$content= $this->add_anchors_to_content($content);
+			$content= $this->add_backlinks_to_content($content);
 			
 			if($this->options['autoDisplayInContent'] and !$this->isTagUsed){
 			
@@ -63,7 +64,7 @@ if (!class_exists('mwm_aal')) {
 			$pattern='#<h(['.$this->options['is_headHi'].'-'.$this->options['is_headLo'].'])(?: [^>]+)?>(.+?)</h\1>#is';
 			preg_match_all($pattern,$content, $matches, PREG_SET_ORDER);
 			$this->links = $matches;
-			
+
 			if(strpos($content, $this->tag)){
 				$this->isTagUsed = true;
 			}
@@ -77,6 +78,19 @@ if (!class_exists('mwm_aal')) {
 					$rtext='<a name="'.urlencode($this->toAscii(strip_tags($val[2]))).'"></a>';
 					$pos = strpos($content, $val[0]);
 					$content = substr_replace($content, $rtext, $pos, 0);
+				}
+			}
+			return $content;
+		
+		}
+		
+		function add_backlinks_to_content($content){
+		$linkback = '<a title="back to anchor list" href="#Content-bal-title"> ^</a>';
+			if(count($this->links) >= 1){
+				foreach ($this->links as $val) {
+					$delka = (strlen($val[0])-5);
+					$posend = strpos($content, $val[0])+$delka;
+					$content = substr_replace($content, $linkback, $posend, 0);
 				}
 			}
 			return $content;
@@ -101,7 +115,7 @@ if (!class_exists('mwm_aal')) {
 			if(count($this->links) >= 1){
 				$title = __($this->options['displayTitle'],'mwmall');
 				$info = '<div class="mwm-aal-container">';
-				$info.= "<div class='mwm-aal-title'>$title</div><$seznam>";
+				$info.= "<a name='Content-bal-title'></a><div class='mwm-aal-title'>$title</div><$seznam>";
 				foreach ($this->links as $val) {
 					if ($this->options['is_indent']) {
 						if(empty($minule)) {

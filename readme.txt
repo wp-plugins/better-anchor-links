@@ -71,6 +71,9 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 3. Auto indent
 
 == Changelog ==
+= 1.6 =
+* Added "back to content list" link after heading (without option for now!!)
+
 = 1.5.6 =
 * Headings now accept all html attributes (as id, class ... etc)
 * Removed orphan tags
