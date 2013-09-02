@@ -4,21 +4,21 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 		if ( $_POST['page_options'] ) {	
 			$options = explode(',', stripslashes($_POST['page_options']));
 			if ($options) {
-			if (strlen($_POST['backlink_char'])==1) {
-				if ($_POST['is_headHi']<=$_POST['is_headLo']) {
-					if ($_POST['loc-nicer'] == "") {$_POST['loc-nicer'] = "en_US";}
-					foreach ($options as $option) {
-						$option = trim($option);
-						$value = trim($_POST[$option]);
-						$mwm_aalLoader->options[$option] = $value;
+				if (strlen($_POST['backlink_char'])==1) {
+					if ($_POST['is_headHi']<=$_POST['is_headLo']) {
+						if ($_POST['loc-nicer'] == "") {$_POST['loc-nicer'] = "en_US";}
+						foreach ($options as $option) {
+							$option = trim($option);
+							$value = trim($_POST[$option]);
+							$mwm_aalLoader->options[$option] = $value;
+						}
+						// Save options
+						/*print_r ($mwm_aalLoader->options); */
+						update_option('lm_bal_options', $mwm_aalLoader->options);
+						$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
+					}else{
+						$mwm_aalLoader->show_error(__('Options not saved the first heading number should be less or equal than the second ! ','mwmall'));
 					}
-					// Save options
-					/*print_r ($mwm_aalLoader->options); */
-					update_option('lm_bal_options', $mwm_aalLoader->options);
-					$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
-				}else{
-			   		$mwm_aalLoader->show_error(__('Options not saved the first heading number should be less or equal than the second ! ','mwmall'));
-				}
 				}else{
 			   		$mwm_aalLoader->show_error(__('Options not saved the backling char have more than one character ','mwmall'));
 				}
