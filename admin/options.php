@@ -4,6 +4,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 		if ( $_POST['page_options'] ) {	
 			$options = explode(',', stripslashes($_POST['page_options']));
 			if ($options) {
+			if (strlen($_POST['backlink_char'])==1) {
 				if ($_POST['is_headHi']<=$_POST['is_headLo']) {
 					if ($_POST['loc-nicer'] == "") {$_POST['loc-nicer'] = "en_US";}
 					foreach ($options as $option) {
@@ -17,6 +18,9 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 					$mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
 				}else{
 			   		$mwm_aalLoader->show_error(__('Options not saved the first heading number should be less or equal than the second ! ','mwmall'));
+				}
+				}else{
+			   		$mwm_aalLoader->show_error(__('Options not saved the backling char have more than one character ','mwmall'));
 				}
 			}
 		}
@@ -42,7 +46,7 @@ function headSet($hilo,$numsel) {
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer,is_backlink" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer,is_backlink,backlink_text,backlink_char" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -153,8 +157,9 @@ function headSet($hilo,$numsel) {
 				<th scope="row" valign="top" align="left"><?php _e('Show backlink next to heading','mwmaal') ?></th>
 				<td>
 				<input type="checkbox" name="is_backlink" value="1" <?php checked(true, $mwm_aalLoader->options['is_backlink']); ?> />
-						<?php _e('Check if you want activate backlink.','mwmaal') ?>
+						<?php _e('Check if you want activate backlink with text ','mwmaal') ?> <input type="text" size="20" name="backlink_text" value="<?php echo $mwm_aalLoader->options['backlink_text']; ?>" /> by char <input type="text" size="1" name="backlink_char" value="<?php echo $mwm_aalLoader->options['backlink_char']; ?>" /> (only one char allowed).
 				</td>
+				
 			</tr>
 			<!--<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('# of Columns in Content','mwmaal') ?></th>

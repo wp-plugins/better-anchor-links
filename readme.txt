@@ -72,7 +72,8 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 
 == Changelog ==
 = 1.6 =
-* Added "back to content list" link after heading (without option for now!!)
+* Added "back to content list" link next to heading
+* Added option for change text of backlink
 
 = 1.5.6 =
 * Headings now accept all html attributes (as id, class ... etc)

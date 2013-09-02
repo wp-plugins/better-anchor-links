@@ -75,7 +75,19 @@ if (!class_exists('mwm_aalLoader')) {
 					$lm_bal_options=$options ;
 					$lm_bal_options['is_backlink'] = false;
 					update_option('lm_bal_options', $lm_bal_options); 
-				} 
+				}
+				if (!array_key_exists('backlink_text', $options))
+				{
+					$lm_bal_options=$options ;
+					$lm_bal_options['backlink_text'] = "back to content";
+					update_option('lm_bal_options', $lm_bal_options); 
+				}
+				if (!array_key_exists('backlink_char', $options))
+				{
+					$lm_bal_options=$options ;
+					$lm_bal_options['backlink_char'] = "^";
+					update_option('lm_bal_options', $lm_bal_options); 
+				}
 			}
 		}
 		
@@ -127,6 +139,7 @@ if (!class_exists('mwm_aalLoader')) {
 			$lm_bal_options['is_headHi'] = 1;
 			$lm_bal_options['is_headLo'] = 6;
             $lm_bal_options['is_backlink'] = false;
+			$lm_bal_options['backlink_char'] = "^";
 			
 			update_option('lm_bal_options', $lm_bal_options);
 			}

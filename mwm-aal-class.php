@@ -87,7 +87,7 @@ if (!class_exists('mwm_aal')) {
 		}
 		
 		function add_backlinks_to_content($content){
-		$linkback = '<a title="back to anchor list" href="#Content-bal-title"> ^</a>';
+		$linkback = '<a title="'.$this->options['backlink_text'].'" href="#Content-bal-title"> '.$this->options['backlink_char'].'</a>';
 			if(count($this->links) >= 1){
 				foreach ($this->links as $val) {
 					$delka = (strlen($val[0])-5);
