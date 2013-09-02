@@ -40,12 +40,13 @@ if (!class_exists('mwm_aal')) {
 		
 			$this->find_content_name_links($content);
 			$content= $this->add_anchors_to_content($content);
-			if ($this->options['is_backlink']) {
+
+			if($this->options['is_backlink'] and $this->isTagUsed){
 				$content= $this->add_backlinks_to_content($content);
 			}
+
 			
 			if($this->options['autoDisplayInContent'] and !$this->isTagUsed){
-			
 				if ((is_home()		and $this->options['is_home']) or
 				    (is_single()	and $this->options['is_single']) or
 				    (is_page()		and $this->options['is_page']) or
@@ -56,6 +57,7 @@ if (!class_exists('mwm_aal')) {
 				    (is_search()	and $this->options['is_search'])) {
 				  
 					$content = $this->auto_output_content_links($content);
+
 				}
 			}
 	
