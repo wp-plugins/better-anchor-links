@@ -73,7 +73,8 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 == Changelog ==
 = 1.6 =
 * Added "back to content list" link next to heading
-* Added option for change text of backlink
+* Added option for change name of backlink
+* Added option for change char of backlink
 
 = 1.5.6 =
 * Headings now accept all html attributes (as id, class ... etc)
@@ -122,3 +123,6 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 == Upgrade Notice ==
 = 1.1 =
 * For upgrade from Auto Anchor List 1.0 uninstall old AAL and remove addon. Install Better Anchor Links 1.1. If you used manual tags to contents, they are compatible.
+
+== Known issues ==
+* Heading is hidden under bar if admin bar is ON
