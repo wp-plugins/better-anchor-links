@@ -69,6 +69,12 @@ if (!class_exists('mwm_aalLoader')) {
 					$lm_bal_options=$options ;
 					$lm_bal_options['loc-nicer'] = "en_US";
 					update_option('lm_bal_options', $lm_bal_options); 
+				}			
+				if (!array_key_exists('is_backlink', $options))
+				{
+					$lm_bal_options=$options ;
+					$lm_bal_options['is_backlink'] = false;
+					update_option('lm_bal_options', $lm_bal_options); 
 				} 
 			}
 		}
@@ -120,7 +126,8 @@ if (!class_exists('mwm_aalLoader')) {
 			$lm_bal_options['is_indent'] = false;
 			$lm_bal_options['is_headHi'] = 1;
 			$lm_bal_options['is_headLo'] = 6;
-                               
+            $lm_bal_options['is_backlink'] = false;
+			
 			update_option('lm_bal_options', $lm_bal_options);
 			}
 		}

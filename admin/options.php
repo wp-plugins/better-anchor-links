@@ -42,7 +42,7 @@ function headSet($hilo,$numsel) {
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer,is_backlink" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -148,7 +148,14 @@ function headSet($hilo,$numsel) {
 				<input type="text" size="5" name="loc-nicer" value="<?php echo $mwm_aalLoader->options['loc-nicer']; ?>" />
 						<span class="setting-description"><?php _e('.UTF8 (Change only if international characters in anchor URL is cutted. For example cs_CZ for Czech. Default is en_US)','mwmaal') ?></span>
 				</td>
-			</tr> 
+			</tr>
+			<tr  valign="top">
+				<th scope="row" valign="top" align="left"><?php _e('Show backlink next to heading','mwmaal') ?></th>
+				<td>
+				<input type="checkbox" name="is_backlink" value="1" <?php checked(true, $mwm_aalLoader->options['is_backlink']); ?> />
+						<?php _e('Check if you want activate backlink.','mwmaal') ?>
+				</td>
+			</tr>
 			<!--<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('# of Columns in Content','mwmaal') ?></th>
 				<td>

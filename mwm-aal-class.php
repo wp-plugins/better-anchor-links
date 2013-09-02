@@ -40,7 +40,9 @@ if (!class_exists('mwm_aal')) {
 		
 			$this->find_content_name_links($content);
 			$content= $this->add_anchors_to_content($content);
-			$content= $this->add_backlinks_to_content($content);
+			if ($this->options['is_backlink']) {
+				$content= $this->add_backlinks_to_content($content);
+			}
 			
 			if($this->options['autoDisplayInContent'] and !$this->isTagUsed){
 			
