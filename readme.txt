@@ -75,6 +75,7 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 * Added "back to content list" link next to heading
 * Added option for change name of backlink
 * Added option for change char of backlink
+* Fixed sidebar deprecated registration
 
 = 1.5.6 =
 * Headings now accept all html attributes (as id, class ... etc)
