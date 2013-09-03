@@ -23,6 +23,7 @@ Features:
 * Selection between numerically ordered and bulleted list 
 * Auto Links indentation
 * qTranslate support
+* Show "back to content" link next to heading
 
 == Installation ==
 
@@ -72,7 +73,7 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 
 == Changelog ==
 = 1.6 =
-* Added "back to content list" link next to heading
+* Added "back to content" link next to heading (as asterisk by default)
 * Added option for change name of backlink
 * Added option for change char of backlink
 * Fixed sidebar deprecated registration
