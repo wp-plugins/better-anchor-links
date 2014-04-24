@@ -136,4 +136,4 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 * For upgrade from Auto Anchor List 1.0 uninstall old AAL and remove addon. Install Better Anchor Links 1.1. If you used manual tags to contents, they are compatible.
 
 == Known issues ==
-* Heading is hidden under bar if admin bar is ON
+
