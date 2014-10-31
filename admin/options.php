@@ -157,7 +157,7 @@ function headSet($hilo,$numsel) {
 				<th scope="row" valign="top" align="left"><?php _e('Show backlink next to heading','mwmaal') ?></th>
 				<td>
 				<input type="checkbox" name="is_backlink" value="1" <?php checked(true, $mwm_aalLoader->options['is_backlink']); ?> />
-						<?php _e('Check if you want activate backlink with text ','mwmaal') ?> <input type="text" size="20" name="backlink_text" value="<?php echo $mwm_aalLoader->options['backlink_text']; ?>" /> by char <input type="text" size="1" name="backlink_char" value="<?php echo $mwm_aalLoader->options['backlink_char']; ?>" /> (only one char allowed).
+						<?php _e('Check if you want activate backlink with text ','mwmaal') ?> <input type="text" size="20" name="backlink_text" value="<?php echo $mwm_aalLoader->options['backlink_text']; ?>" /> by char <input type="text" size="1" name="backlink_char" value="<?php echo $mwm_aalLoader->options['backlink_char']; ?>" /> (only one char allowed)<br/>
 				<input type="checkbox" name="is_backlinkfront" value="1" <?php checked($mwm_aalLoader->options['is_backlinkfront']); ?> />
 						<?php _e('Display backlink at the beginning rather than the end','mwmaal') ?>
 				</td>
