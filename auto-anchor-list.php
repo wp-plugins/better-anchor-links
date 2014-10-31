@@ -39,7 +39,7 @@ if (!class_exists('mwm_aalLoader')) {
 			$this->define_constants();
 			$this->load_dependencies();
 			register_activation_hook( plugin_basename( dirname(__FILE__)).'/auto-anchor-list.php', array(&$this, 'activate') );
-			wp_register_sidebar_widget(idbal16,'Better Anchor Links', array(&$this, 'widget'));
+			wp_register_sidebar_widget('idbal16','Better Anchor Links', array(&$this, 'widget'));
 		}
 		
 		function upgra_options(){
