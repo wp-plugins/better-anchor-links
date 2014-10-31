@@ -46,7 +46,7 @@ function headSet($hilo,$numsel) {
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
-	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer,is_backlink,backlink_text,backlink_char" />
+	<input type="hidden" name="page_options" value="activatePlugin,activateCSS,autoDisplayInContent,displayTitle,displayPosts,displayPages,contentColumnCount,is_home,is_single,is_page,is_category,is_tag,is_date,is_author,is_search,is_numbering,is_indent,is_headHi,is_headLo,loc-nicer,is_backlink,backlink_text,backlink_char,is_backlinkfront" />
 		<table class="form-table">
 			<tr  valign="top">
 				<th scope="row" valign="top" align="left"><?php _e('Activate Plugin','mwmaal') ?></th>
@@ -158,6 +158,8 @@ function headSet($hilo,$numsel) {
 				<td>
 				<input type="checkbox" name="is_backlink" value="1" <?php checked(true, $mwm_aalLoader->options['is_backlink']); ?> />
 						<?php _e('Check if you want activate backlink with text ','mwmaal') ?> <input type="text" size="20" name="backlink_text" value="<?php echo $mwm_aalLoader->options['backlink_text']; ?>" /> by char <input type="text" size="1" name="backlink_char" value="<?php echo $mwm_aalLoader->options['backlink_char']; ?>" /> (only one char allowed).
+				<input type="checkbox" name="is_backlinkfront" value="1" <?php checked($mwm_aalLoader->options['is_backlinkfront']); ?> />
+						<?php _e('Display backlink at the beginning rather than the end','mwmaal') ?>
 				</td>
 				
 			</tr>
