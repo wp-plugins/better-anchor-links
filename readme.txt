@@ -72,6 +72,9 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 3. Auto indent
 
 == Changelog ==
+= 1.7.3 =
+* Fixed sidebar register
+
 = 1.7.2 =
 * Fixed adding backlink to PHP Template
 * Added option for backlink location
