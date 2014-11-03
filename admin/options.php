@@ -63,7 +63,7 @@ function headSet($hilo,$numsel) {
 
 					<div style="text-align:none;">
 					Luděk Melichar <br>
-					<a href="http://ludek.org/bal"><small>ludek.org</small></a>
+					<a href="http://ludek.org/bal/"><small>ludek.org</small></a>
 
 					<br/>
 					</div>
