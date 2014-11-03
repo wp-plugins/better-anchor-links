@@ -22,7 +22,7 @@ Features:
 * Clears all traces from any excerpts displayed
 * Selection between numerically ordered and bulleted list 
 * Auto Links indentation
-* qTranslate support
+* qTranslate/mqTranslate support
 * Show "back to content" link next to heading
 
 == Installation ==
@@ -62,8 +62,8 @@ The content display and side bar are wrapped with a `<div>` with an assigned css
 Free edit css/mwm-aal.css for any changes. You can remove all lines above and under the links by deteting section:
 	`border-top:1px solid #ccc; border-bottom: 1px solid #ccc;` 
 
-= How To qTranslate support? =
-Put qTranslate string to List Output Title for example for EN and CZ language:
+= How To qTranslate/mqTranslate support? =
+Put qTranslate/mqTranslate string to List Output Title for example for EN and CZ language:
 	`<!--:cs-->Obsah<!--:--><!--:en-->Contents<!--:-->`
 
 == Screenshots ==
@@ -72,6 +72,9 @@ Put qTranslate string to List Output Title for example for EN and CZ language:
 3. Auto indent
 
 == Changelog ==
+= 1.7.4 =
+* Small fixes
+
 = 1.7.3 =
 * Fixed sidebar register
 

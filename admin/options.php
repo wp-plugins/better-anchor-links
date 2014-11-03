@@ -42,7 +42,7 @@ function headSet($hilo,$numsel) {
 	
 		
 <div class="wrap">
-	<h2>Better Anchor Links Options</h2>
+	<h2>Better Anchor Links Options (version <?php echo $mwm_aalLoader->version; ?>)</h2>
 	
 	<form name="generaloptions" method="post">
 	<?php wp_nonce_field('ngg_settings') ?>
@@ -63,7 +63,7 @@ function headSet($hilo,$numsel) {
 
 					<div style="text-align:none;">
 					Luděk Melichar <br>
-					<a href="http://ludek.org"><small>ludek.org</small></a>
+					<a href="http://ludek.org/bal"><small>ludek.org</small></a>
 
 					<br/>
 					</div>
