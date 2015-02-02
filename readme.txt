@@ -3,8 +3,8 @@ Contributors: Luděk Melichar
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=48CZMVXER28PE&lc=CZ&item_name=Plugin%20development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: anchor, anchor links, content links, content, sidebar, links, widget, better anchor links, bal, lm-bal, anchor list, auto anchor list
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 1.7.4
+Tested up to: 4.1
+Stable tag: 1.7.5
 
 Creates anchor links to heading tags in the content and displays automatically at the top of the content, or allows for custom placement with tags.
 
@@ -72,6 +72,9 @@ Put qTranslate/mqTranslate string to List Output Title for example for EN and CZ
 3. Auto indent
 
 == Changelog ==
+= 1.7.5 =
+* Fixed backlink off when Auto Display is on
+
 = 1.7.4 =
 * Small fixes
 

@@ -55,7 +55,9 @@ if (!class_exists('mwm_aal')) {
 					(is_author()	and $this->options['is_author']) or
 				    (is_search()	and $this->options['is_search'])) {
 
-					$content= $this->add_backlinks_to_content($content);
+					if($this->options['is_backlink']) {
+						$content= $this->add_backlinks_to_content($content);
+					}
 					$content = $this->auto_output_content_links($content);
 				}
 			}
