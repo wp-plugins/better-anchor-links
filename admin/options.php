@@ -1,7 +1,7 @@
 <?php 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
 
-		if ( $_POST['page_options'] ) {	
+		if ( isset($_POST['page_options']) ) {	
 			$options = explode(',', stripslashes($_POST['page_options']));
 			if ($options) {
 				if (strlen($_POST['backlink_char'])==1) {
