@@ -16,7 +16,7 @@ class mwm_aalAdminPanel{
 
 	function load_admin_options(){
 		if (function_exists('add_options_page')) {
-            add_options_page('Better Anchor Links Options','B. Anchor Links', 6, MWMAALFOLDER . '/admin/options.php');
+            add_options_page('Better Anchor Links Options','B. Anchor Links', 'manage_options', MWMAALFOLDER . '/admin/options.php');
         }
 	}
 }
