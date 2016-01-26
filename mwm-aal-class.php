@@ -112,11 +112,7 @@ if (!class_exists('mwm_aal')) {
         function auto_output_content_links($content){
             if(count($this->links) >= 1){
                 $output = $this->output_content_links();
-                if(strpos($content, $this->htmltag)){
-                    $content = $output.$content;
-                } else {
-                    $content = $output.$content;
-                }
+                $content = $output.$content;
             }
             return $content;
         }
