@@ -174,8 +174,8 @@ if (!class_exists('mwm_aal')) {
             }
             
             $excerpt = str_replace($data, '', $excerpt);
-            $excerpt = str_replace($tag, '', $excerpt);
-            $excerpt = str_replace($htmltag, '', $excerpt);
+            //$excerpt = str_replace($tag, '', $excerpt);
+            //$excerpt = str_replace($htmltag, '', $excerpt);
             return $excerpt;
         }
         
