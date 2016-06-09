@@ -29,105 +29,106 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 */
 if (!class_exists('mwm_aalLoader')) {
-    class mwm_aalLoader{
-        
-        var $version     = '1.7.6';
-        var $options     = '';
+
+    class mwm_aalLoader
+    {
+
+        var $version = '1.7.6';
+        var $options = '';
         var $links = array();
-    
-        function mwm_aalLoader(){
+
+        function __construct()
+        {
             $this->upgra_options();
-            $this->load_options();                  
+            $this->load_options();
             $this->define_constants();
             $this->load_dependencies();
-            register_activation_hook( plugin_basename( dirname(__FILE__)).'/auto-anchor-list.php', array(&$this, 'activate') );
-            wp_register_sidebar_widget('idbal16','Better Anchor Links', array(&$this, 'widget'));
+            register_activation_hook(plugin_basename(dirname(__FILE__)) . '/auto-anchor-list.php',
+                array(&$this, 'activate'));
+            wp_register_sidebar_widget('idbal16', 'Better Anchor Links', array(&$this, 'widget'));
         }
-        
-        function upgra_options(){
+
+        function upgra_options()
+        {
             $options = get_option('lm_bal_options');
-            if (!empty( $options ) ){
-                if (!array_key_exists('is_numbering', $options))
-                {
-                    $lm_bal_options=$options ;
+            if (!empty($options)) {
+                if (!array_key_exists('is_numbering', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['is_numbering'] = true;
-                    update_option('lm_bal_options', $lm_bal_options); 
+                    update_option('lm_bal_options', $lm_bal_options);
                 }
-                if (!array_key_exists('is_indent', $options))
-                {
-                    $lm_bal_options=$options ;
+                if (!array_key_exists('is_indent', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['is_indent'] = false;
-                    update_option('lm_bal_options', $lm_bal_options); 
-                } 
-                if (!array_key_exists('is_headHi', $options))
-                {
-                    $lm_bal_options=$options ;
+                    update_option('lm_bal_options', $lm_bal_options);
+                }
+                if (!array_key_exists('is_headHi', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['is_headHi'] = 1;
                     $lm_bal_options['is_headLo'] = 6;
-                    update_option('lm_bal_options', $lm_bal_options); 
+                    update_option('lm_bal_options', $lm_bal_options);
                 }
-                if (!array_key_exists('loc-nicer', $options))
-                {
-                    $lm_bal_options=$options ;
+                if (!array_key_exists('loc-nicer', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['loc-nicer'] = "en_US";
-                    update_option('lm_bal_options', $lm_bal_options); 
-                }           
-                if (!array_key_exists('is_backlink', $options))
-                {
-                    $lm_bal_options=$options ;
+                    update_option('lm_bal_options', $lm_bal_options);
+                }
+                if (!array_key_exists('is_backlink', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['is_backlink'] = false;
-                    update_option('lm_bal_options', $lm_bal_options); 
+                    update_option('lm_bal_options', $lm_bal_options);
                 }
-                if (!array_key_exists('backlink_text', $options))
-                {
-                    $lm_bal_options=$options ;
+                if (!array_key_exists('backlink_text', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['backlink_text'] = "back to content";
-                    update_option('lm_bal_options', $lm_bal_options); 
+                    update_option('lm_bal_options', $lm_bal_options);
                 }
-                if (!array_key_exists('backlink_char', $options))
-                {
-                    $lm_bal_options=$options ;
+                if (!array_key_exists('backlink_char', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['backlink_char'] = "*";
-                    update_option('lm_bal_options', $lm_bal_options); 
+                    update_option('lm_bal_options', $lm_bal_options);
                 }
-                if (!array_key_exists('is_backlinkfront', $options))
-                {
-                    $lm_bal_options=$options ;
+                if (!array_key_exists('is_backlinkfront', $options)) {
+                    $lm_bal_options = $options;
                     $lm_bal_options['is_backlinkfront'] = false;
-                    update_option('lm_bal_options', $lm_bal_options); 
+                    update_option('lm_bal_options', $lm_bal_options);
                 }
             }
         }
-        
-        function load_options(){
+
+        function load_options()
+        {
             // Load the options
             $this->options = get_option('lm_bal_options');
         }
-        
-        function define_constants() {
+
+        function define_constants()
+        {
             // define URL
-            define('MWMAALFOLDER', plugin_basename( dirname(__FILE__)) );
-            define('MWMAAL_URLPATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
+            define('MWMAALFOLDER', plugin_basename(dirname(__FILE__)));
+            define('MWMAAL_URLPATH', WP_PLUGIN_URL . '/' . plugin_basename(dirname(__FILE__)) . '/');
         }
-        
-        function load_dependencies(){
+
+        function load_dependencies()
+        {
             // Load backend libraries
-            if ( is_admin() ) { 
-                require_once (dirname (__FILE__) . '/admin/admin.php');
+            if (is_admin()) {
+                require_once(dirname(__FILE__) . '/admin/admin.php');
                 $this->mwm_aalAdminPanel = new mwm_aalAdminPanel();
-                
-            // Load frontend libraries                          
+
+                // Load frontend libraries
             } else {
-                if($this->options['activatePlugin']){
-                    require_once (dirname (__FILE__) . '/mwm-aal-class.php');
+                if ($this->options['activatePlugin']) {
+                    require_once(dirname(__FILE__) . '/mwm-aal-class.php');
                     global $mwm_aal;
                 }
             }
         }
-        
-        function activate(){
+
+        function activate()
+        {
             $options = get_option('lm_bal_options');
-            if ( empty( $options ) ){
+            if (empty($options)) {
                 $lm_bal_options['activatePlugin'] = true;
                 $lm_bal_options['activateCSS'] = true;
                 $lm_bal_options['autoDisplayInContent'] = true;
@@ -148,45 +149,50 @@ if (!class_exists('mwm_aalLoader')) {
                 $lm_bal_options['is_backlink'] = false;
                 $lm_bal_options['backlink_char'] = "*";
                 $lm_bal_options['is_backlinkfront'] = false;
-                
+
                 update_option('lm_bal_options', $lm_bal_options);
             }
         }
-        
+
         /**
-        * Show a error messages
-        */
-        function show_error($message) {
+         * Show a error messages
+         */
+        function show_error($message)
+        {
             echo '<div class="wrap"><h2></h2><div class="error" id="error"><p>' . $message . '</p></div></div>' . "\n";
         }
-        
+
         /**
-        * Show a system messages
-        */
-        function show_message($message) {
+         * Show a system messages
+         */
+        function show_message($message)
+        {
             echo '<div class="wrap"><h2></h2><div class="updated fade" id="message"><p>' . $message . '</p></div></div>' . "\n";
         }
-        
+
         /**
          * widget
          *
-         * The sidebar widget 
+         * The sidebar widget
          */
-        function widget($args){
+        function widget($args)
+        {
             extract($args);
             //Manditory before widget junk
             echo $before_widget;
             /*echo '<li>'; */
-            global $mwm_aal; $mwm_aal->output_sidebar_links();
+            global $mwm_aal;
+            $mwm_aal->output_sidebar_links();
             /*echo '</li>'; */
             //Manditory after widget junk
             echo $after_widget;
         }
-        
-        
-    
+
+
     }
+
     //Start Loader
     global $mwm_aalLoader;
     $mwm_aalLoader = new mwm_aalLoader();
+
 }
