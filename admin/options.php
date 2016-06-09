@@ -1,42 +1,50 @@
 <?php 
-if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
-        if ( isset($_POST['page_options']) ) {  
-            $options = explode(',', stripslashes($_POST['page_options']));
-            if ($options) {
-                if (strlen($_POST['backlink_char'])==1) {
-                    if ($_POST['is_headHi']<=$_POST['is_headLo']) {
-                        if ($_POST['loc-nicer'] == "") {$_POST['loc-nicer'] = "en_US";}
-                        
-                        foreach ($options as $option) {
-                            $option = trim($option);
-                            if(isset($_POST[$option])){
-                                $value = trim($_POST[$option]);
-                                $mwm_aalLoader->options[$option] = $value;
-                            }else{
-                                $mwm_aalLoader->options[$option] = 0;
-                            }
-                        }
-                        // Save options
-                        update_option('lm_bal_options', $mwm_aalLoader->options);
-                        $mwm_aalLoader->show_message(__('Updated Successfully','mwmall'));
-                    }else{
-                        $mwm_aalLoader->show_error(__('Options not saved the first heading number should be less or equal than the second ! ','mwmall'));
-                    }
-                }else{
-                    $mwm_aalLoader->show_error(__('Options not saved the backling char have more than one character ','mwmall'));
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
+    die('You are not allowed to call this page directly.');
+}
+if ( isset($_POST['page_options']) ) {
+    $options = explode(',', stripslashes($_POST['page_options']));
+    if ($options) {
+        if (strlen($_POST['backlink_char']) == 1) {
+            if ($_POST['is_headHi'] <= $_POST['is_headLo']) {
+                if ($_POST['loc-nicer'] == "") {
+                    $_POST['loc-nicer'] = "en_US";
                 }
-            }
-        }
 
-function headSet($hilo,$numsel) {
-    echo "<select name='$hilo' size=1>";
-    $i=1; 
-    while ($i<7) {
-        echo '<option ';
-        if ($numsel == $i) {echo 'selected="SELECTED" ';
+                foreach ($options as $option) {
+                    $option = trim($option);
+                    if (isset($_POST[$option])) {
+                        $value = trim($_POST[$option]);
+                        $mwm_aalLoader->options[$option] = $value;
+                    } else {
+                        $mwm_aalLoader->options[$option] = 0;
+                    }
+                }
+                // Save options
+                update_option('lm_bal_options', $mwm_aalLoader->options);
+                $mwm_aalLoader->show_message(__('Updated Successfully', 'mwmall'));
+            } else {
+                $mwm_aalLoader->show_error(__('Options not saved the first heading number should be less or equal than the second ! ',
+                    'mwmall'));
+            }
+        } else {
+            $mwm_aalLoader->show_error(__('Options not saved the backling char have more than one character ',
+                'mwmall'));
         }
-        echo "value=".$i.">&#60;h".$i."&#62;</option>"; 
-        $i++ ;
+    }
+}
+
+function headSet($hilo,$numsel)
+{
+    echo "<select name='$hilo' size=1>";
+    $i = 1;
+    while ($i < 7) {
+        echo '<option ';
+        if ($numsel == $i) {
+            echo 'selected="SELECTED" ';
+        }
+        echo "value=" . $i . ">&#60;h" . $i . "&#62;</option>";
+        $i++;
     }
     echo "</select>";
 }
